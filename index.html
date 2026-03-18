@@ -16,14 +16,25 @@
     --dark2:#3C2A33;
     --coral-light:#fde8eb;
   }
+  html{scroll-behavior:smooth;}
   body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark2);}
   section{padding:5rem 2rem;}
   .container{max-width:1000px;margin:0 auto;}
 
-  nav{background:var(--maroon);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-  .nav-logo{font-family:'Fraunces',serif;color:#fff;font-size:1.4rem;font-weight:600;letter-spacing:-0.03em;}
-  .nav-tag{background:var(--coral);color:#fff;font-size:0.7rem;font-weight:500;padding:4px 10px;border-radius:20px;letter-spacing:0.05em;text-transform:uppercase;}
+  /* NAV */
+  nav{background:var(--maroon);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;height:60px;}
+  .nav-logo{font-family:'Fraunces',serif;color:#fff;font-size:1.2rem;font-weight:600;letter-spacing:-0.03em;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;gap:0.25rem;}
+  .nav-links a{color:rgba(255,255,255,0.65);font-size:0.78rem;text-decoration:none;padding:6px 12px;border-radius:20px;transition:all 0.2s;white-space:nowrap;}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08);}
+  .nav-apply{background:var(--coral);color:#fff !important;font-weight:500;padding:7px 16px !important;border-radius:20px;}
+  .nav-apply:hover{background:#c9293f !important;opacity:1;}
+  @media(max-width:700px){
+    .nav-links a:not(.nav-apply){display:none;}
+    .nav-apply{display:block !important;}
+  }
 
+  /* HERO */
   .hero{background:var(--maroon);color:#fff;padding:6rem 2rem 5rem;position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(231,55,78,0.18);}
   .hero::after{content:'';position:absolute;bottom:-40px;left:30%;width:160px;height:160px;border-radius:50%;background:rgba(231,55,78,0.1);}
@@ -31,19 +42,26 @@
   .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:1rem;letter-spacing:-0.03em;}
   .hero h1 em{font-style:italic;color:var(--coral);}
   .hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:520px;line-height:1.7;margin-bottom:2rem;}
-  .hero-meta{display:flex;gap:2rem;flex-wrap:wrap;}
+  .hero-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem;}
   .hero-stat{border-left:2px solid var(--coral);padding-left:1rem;}
   .hero-stat strong{display:block;font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;color:#fff;}
   .hero-stat span{font-size:0.8rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.06em;}
+  .hero-cta{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-size:0.9rem;font-weight:500;padding:12px 28px;border-radius:30px;transition:background 0.2s;}
+  .hero-cta:hover{background:#c9293f;}
+  .hero-deadline{display:inline-block;margin-left:1rem;font-size:0.8rem;color:rgba(255,255,255,0.5);}
 
-  .why{background:#fff;}
+  /* SECTIONS */
   .section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--coral);font-weight:500;margin-bottom:0.75rem;}
   .section-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--maroon);line-height:1.15;margin-bottom:2.5rem;letter-spacing:-0.02em;}
+
+  /* WHY */
+  .why{background:#fff;}
   .barriers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2rem;}
   .barrier-card{background:var(--cream);border-radius:12px;padding:1.5rem;position:relative;border-left:3px solid var(--coral);}
   .barrier-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;color:var(--coral);opacity:0.25;position:absolute;top:0.5rem;right:1rem;}
   .barrier-card h3{font-size:0.95rem;font-weight:500;color:var(--maroon);line-height:1.4;}
 
+  /* OUTCOMES */
   .outcomes{background:var(--maroon);color:#fff;}
   .outcomes .section-title{color:#fff;}
   .outcomes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
@@ -53,6 +71,7 @@
   .outcome-card h3{font-size:1rem;font-weight:500;margin-bottom:0.4rem;color:#fff;}
   .outcome-card p{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;}
 
+  /* SELECTIVITY */
   .selectivity{background:#fff;}
   .select-box{background:var(--maroon);color:#fff;border-radius:16px;padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem;}
   .select-box .section-label{color:var(--coral);}
@@ -61,17 +80,19 @@
   .criteria-item{background:rgba(255,255,255,0.08);border-radius:10px;padding:1rem 1.2rem;font-size:0.85rem;color:rgba(255,255,255,0.8);line-height:1.5;border-left:2px solid var(--coral);}
   .criteria-item strong{display:block;color:#fff;font-size:0.9rem;margin-bottom:0.25rem;}
 
+  /* STRUCTURE */
   .structure{background:var(--cream);}
   .timeline{position:relative;margin-top:2.5rem;}
   .timeline-line{position:absolute;left:0;top:24px;bottom:0;width:2px;background:var(--coral);opacity:0.2;}
   .phase{display:flex;gap:1.5rem;margin-bottom:2rem;position:relative;}
   .phase-dot{width:12px;height:12px;border-radius:50%;background:var(--coral);flex-shrink:0;margin-top:6px;position:relative;z-index:1;}
-  .phase-dot.open{background:#fff;border:2px solid var(--coral);}
+  .phase-dot.open{background:var(--cream);border:2px solid var(--coral);}
   .phase-content{flex:1;}
   .phase-week{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--coral);font-weight:500;margin-bottom:0.25rem;}
   .phase-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:400;color:var(--maroon);margin-bottom:0.35rem;}
   .phase-desc{font-size:0.85rem;color:var(--dark2);opacity:0.7;line-height:1.55;}
 
+  /* SPONSORSHIP */
   .sponsorship{background:var(--cream);}
   .spons-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
   @media(max-width:600px){.spons-grid{grid-template-columns:1fr;}}
@@ -88,6 +109,7 @@
   .spons-card.light .spons-list li{color:var(--dark2);opacity:0.6;}
   .spons-card.dark .spons-list li{color:rgba(255,255,255,0.75);}
 
+  /* COMMUNITY */
   .community{background:#fff;}
   .comm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem;}
   .comm-card{border-radius:12px;padding:1.5rem;background:var(--cream);}
@@ -95,6 +117,7 @@
   .comm-card h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--maroon);margin-bottom:0.4rem;}
   .comm-card p{font-size:0.82rem;color:var(--dark2);opacity:0.7;line-height:1.55;}
 
+  /* TOPICS */
   .topics{background:var(--maroon);color:#fff;}
   .topics .section-title{color:#fff;}
   .topics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-top:2rem;}
@@ -103,6 +126,7 @@
   .topic-card h3{font-size:0.9rem;font-weight:500;color:#fff;line-height:1.4;margin-bottom:0.3rem;}
   .topic-card p{font-size:0.77rem;color:rgba(255,255,255,0.5);line-height:1.45;}
 
+  /* OFFSITE */
   .offsite{background:var(--cream);}
   .offsite-card{background:var(--dark1);color:#fff;border-radius:16px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
   @media(max-width:580px){.offsite-card{grid-template-columns:1fr;}}
@@ -114,6 +138,7 @@
   .offsite-pillar strong{display:block;font-size:0.88rem;color:#fff;margin-bottom:0.2rem;}
   .offsite-pillar span{font-size:0.78rem;color:rgba(255,255,255,0.5);}
 
+  /* ASKS */
   .asks{background:#fff;}
   .asks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
   @media(max-width:600px){.asks-grid{grid-template-columns:1fr;}}
@@ -122,7 +147,36 @@
   .ask-card h3{font-size:0.95rem;font-weight:500;color:var(--maroon);margin-bottom:0.4rem;}
   .ask-card p{font-size:0.8rem;color:var(--dark2);opacity:0.7;line-height:1.55;}
 
-  footer{background:var(--maroon);color:rgba(255,255,255,0.4);text-align:center;padding:2rem;font-size:0.8rem;}
+  /* APPLY FORM */
+  .apply{background:var(--maroon);}
+  .apply .section-title{color:#fff;}
+  .apply .section-label{color:var(--coral);}
+  .apply-deadline{display:inline-block;background:rgba(231,55,78,0.2);color:var(--coral);border:1px solid rgba(231,55,78,0.4);font-size:0.78rem;font-weight:500;padding:5px 14px;border-radius:20px;margin-bottom:2rem;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  @media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-group.full{grid-column:1/-1;}
+  .form-group label{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em;}
+  .form-group input,
+  .form-group textarea,
+  .form-group select{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;font-size:0.88rem;color:#fff;font-family:'DM Sans',sans-serif;outline:none;transition:border 0.2s;width:100%;}
+  .form-group input::placeholder,
+  .form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+  .form-group input:focus,
+  .form-group textarea:focus{border-color:var(--coral);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-submit{margin-top:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+  .btn-submit{background:var(--coral);color:#fff;border:none;padding:14px 32px;border-radius:30px;font-size:0.92rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background 0.2s;}
+  .btn-submit:hover{background:#c9293f;}
+  .form-note{font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.5;}
+
+  /* SUCCESS MESSAGE */
+  .success-msg{display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(231,55,78,0.4);border-radius:12px;padding:2rem;text-align:center;color:#fff;}
+  .success-msg h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;margin-bottom:0.5rem;}
+  .success-msg p{font-size:0.85rem;color:rgba(255,255,255,0.6);}
+
+  /* FOOTER */
+  footer{background:var(--dark1);color:rgba(255,255,255,0.4);text-align:center;padding:2rem;font-size:0.8rem;}
   footer strong{color:#fff;}
 </style>
 </head>
@@ -130,9 +184,16 @@
 
 <nav>
   <span class="nav-logo">Women @ Plum</span>
-  <span class="nav-tag">Leadership Accelerator · 2026</span>
+  <div class="nav-links">
+    <a href="#structure">Program</a>
+    <a href="#sponsorship">Sponsorship</a>
+    <a href="#community">Community</a>
+    <a href="#asks">Leadership asks</a>
+    <a href="#apply" class="nav-apply">Apply now →</a>
+  </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="container">
     <span class="hero-eyebrow">International Women's Day 2026</span>
@@ -144,9 +205,12 @@
       <div class="hero-stat"><strong>10–15</strong><span>Women · By application</span></div>
       <div class="hero-stat"><strong>1:1</strong><span>Leader sponsorship</span></div>
     </div>
+    <a href="#apply" class="hero-cta">Apply now</a>
+    <span class="hero-deadline">Applications close April 30, 2026</span>
   </div>
 </div>
 
+<!-- WHY -->
 <section class="why">
   <div class="container">
     <p class="section-label">The problem</p>
@@ -160,6 +224,7 @@
   </div>
 </section>
 
+<!-- OUTCOMES -->
 <section class="outcomes">
   <div class="container">
     <p class="section-label">What this builds</p>
@@ -185,6 +250,7 @@
   </div>
 </section>
 
+<!-- SELECTIVITY -->
 <section class="selectivity">
   <div class="container">
     <div class="select-box">
@@ -203,7 +269,8 @@
   </div>
 </section>
 
-<section class="structure">
+<!-- STRUCTURE -->
+<section class="structure" id="structure">
   <div class="container">
     <p class="section-label">Program structure</p>
     <h2 class="section-title">90 days · 4 modules · 1 showcase.</h2>
@@ -219,7 +286,8 @@
   </div>
 </section>
 
-<section class="sponsorship">
+<!-- SPONSORSHIP -->
+<section class="sponsorship" id="sponsorship">
   <div class="container">
     <p class="section-label">The core strategic lever</p>
     <h2 class="section-title">Internal sponsorship, not mentorship.</h2>
@@ -249,7 +317,8 @@
   </div>
 </section>
 
-<section class="community">
+<!-- COMMUNITY -->
+<section class="community" id="community">
   <div class="container">
     <p class="section-label">Community layer</p>
     <h2 class="section-title">Women community spaces — beyond the cohort.</h2>
@@ -262,6 +331,7 @@
   </div>
 </section>
 
+<!-- TOPICS -->
 <section class="topics">
   <div class="container">
     <p class="section-label" style="color:var(--coral);">Dedicated topics of interest</p>
@@ -276,6 +346,7 @@
   </div>
 </section>
 
+<!-- OFFSITE -->
 <section class="offsite">
   <div class="container">
     <div class="offsite-card">
@@ -294,7 +365,8 @@
   </div>
 </section>
 
-<section class="asks">
+<!-- ASKS -->
+<section class="asks" id="asks">
   <div class="container">
     <p class="section-label">What we need from leadership</p>
     <h2 class="section-title">Three asks to make this work.</h2>
@@ -306,10 +378,116 @@
   </div>
 </section>
 
+<!-- APPLY -->
+<section class="apply" id="apply">
+  <div class="container">
+    <p class="section-label">Self-nomination</p>
+    <h2 class="section-title">Apply for the 2026 cohort.</h2>
+    <span class="apply-deadline">Applications close April 30, 2026</span>
+
+    <div id="apply-form">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full name</label>
+            <input type="text" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Team / function</label>
+            <input type="text" name="team" placeholder="e.g. Product, Sales, People" required>
+          </div>
+          <div class="form-group">
+            <label>Current role</label>
+            <input type="text" name="role" placeholder="Your job title" required>
+          </div>
+          <div class="form-group">
+            <label>Level</label>
+            <select name="level" required style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;font-size:0.88rem;color:#fff;font-family:'DM Sans',sans-serif;outline:none;width:100%;">
+              <option value="" disabled selected style="color:#999;">Select your level</option>
+              <option value="IC2">IC2</option>
+              <option value="IC3">IC3</option>
+              <option value="IC4">IC4</option>
+              <option value="Manager">Manager</option>
+              <option value="Senior Manager">Senior Manager</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Manager's name</label>
+            <input type="text" name="manager" placeholder="Who will endorse your application?" required>
+          </div>
+          <div class="form-group">
+            <label>Work email</label>
+            <input type="email" name="email" placeholder="you@plumhq.com" required>
+          </div>
+          <div class="form-group full">
+            <label>Your 90-day stretch goal</label>
+            <textarea name="goal" placeholder="What specific leadership outcome do you want to achieve during this program? Be as concrete as possible." required></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Why do you want to join?</label>
+            <textarea name="why" placeholder="What makes this the right moment for you?" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label>What is the biggest change you wish to see in your career?</label>
+            <textarea name="career_change" placeholder="Be honest — this helps us understand what you're working towards." required></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Submit application</button>
+          <p class="form-note">Your application will be sent to the People team.<br>We'll be in touch by May 10, 2026.</p>
+        </div>
+      </form>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <h3>Application received.</h3>
+      <p>Thank you for applying to the Women @ Plum Leadership Accelerator 2026.<br>The People team will be in touch by May 10, 2026.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <strong>Women @ Plum · Leadership Accelerator 2026</strong><br>
   <span style="margin-top:0.4rem;display:block;">Questions? Reach the People team at priya@plumhq.com</span>
 </footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  const name = data.get('name');
+  const team = data.get('team');
+  const role = data.get('role');
+  const level = data.get('level');
+  const manager = data.get('manager');
+  const email = data.get('email');
+  const goal = data.get('goal');
+  const why = data.get('why');
+  const career_change = data.get('career_change');
+
+  const subject = encodeURIComponent('Women @ Plum Leadership Accelerator 2026 — Application from ' + name);
+  const body = encodeURIComponent(
+    'New application received\n\n' +
+    'Name: ' + name + '\n' +
+    'Team / Function: ' + team + '\n' +
+    'Role: ' + role + '\n' +
+    'Level: ' + level + '\n' +
+    'Manager: ' + manager + '\n' +
+    'Email: ' + email + '\n\n' +
+    '90-day stretch goal:\n' + goal + '\n\n' +
+    'Why they want to join:\n' + why + '\n\n' +
+    'Biggest career change they wish to see:\n' + career_change
+  );
+
+  window.location.href = 'mailto:priya@plumhq.com?subject=' + subject + '&body=' + body;
+
+  document.getElementById('apply-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
 
 </body>
 </html>
